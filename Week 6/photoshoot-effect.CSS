@@ -1,0 +1,114 @@
+/* Tổng thể trang */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #48636F; /* xanh xám đậm */
+    font-family: "Segoe UI", sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+/* Logo */
+header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: "Brush Script MT", cursive;
+    color: #F4FFFF;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+/* Slogan */
+h3 {
+    font-family: "Brush Script MT", cursive;
+    font-size: 1.3em;
+    font-style: italic;
+    color: #f5fff5;
+    margin-top: 5px;
+}
+
+/* Thanh điều hướng */
+#navbar {
+    background-color: #2E4851;
+    padding: 10px 0;
+    border-top: 1px solid #56727C;
+    border-bottom: 1px solid #56727C;
+    margin-top: 15px;
+}
+
+#navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#navbar li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: #9DD8E0;
+    font-weight: 600;
+}
+
+#navbar a:hover {
+    color: #C4FFC2;
+}
+
+/* Nội dung chính */
+main {
+    width: 80%;
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #3A5860;
+    border-radius: 10px;
+    padding: 20px 30px 30px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Tiêu đề chính */
+main h2 {
+    font-family: "Brush Script MT", cursive;
+    font-size: 2em;
+    color: #ffffff;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+}
+
+/* Ảnh */
+figure {
+    background-color: #14334A;
+    display: inline-block;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    margin: 15px;
+}
+
+figure img {
+    width: 250px;
+    border: 5px solid #fff;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+/* Đoạn văn */
+main p {
+    text-align: left;
+    line-height: 1.6;
+    font-size: 0.95em;
+    color: #d6e9eb;
+    margin-top: 10px;
+}
+
+main p:first-of-type {
+    color: #B2FF9E; /* đoạn đầu màu xanh nhạt nổi bật */
+}
+
+/* Footer */
+body > p:last-of-type {
+    color: #CFE4EA;
+    font-size: 0.9em;
+    margin-top: 30px;
+}
