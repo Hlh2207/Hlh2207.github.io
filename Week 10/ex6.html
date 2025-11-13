@@ -3,30 +3,31 @@
 <head>
     <meta charset="utf-8">
     <title>Mini calculator</title>
-    <script language="javascript">
-        function calculate() {
-            var a = document.frmCal.txta;
-            var b = document.frmCal.txtb;
-            var o = document.frmCal.slto;
-            var r = document.frmCal.txtr;
-
-            var numberFormat = /^[+-]?\d+(\.\d+)?$/;
-
-            if (numberFormat.test(a.value) == false) {
-                alert("A must be a number!");
-                a.focus();
-            } else if (numberFormat.test(b.value) == false) {
-                alert("B must be a number!");
-                b.focus();
-            } else if ((o.value == "/" || o.value == "%") && parseInt(b.value) == 0) {
-                alert("B can't be 0!");
-                r.value = "";
-                b.focus();
-            } else {
-                r.value = eval(a.value + o.value + b.value);
-            }
-        }
-    </script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 100px;
+    }
+    table {
+        margin-top: 50px;
+        border-collapse: collapse;
+        display: inline-block;
+        text-align: left;
+    }
+    td {
+        padding: 8px;
+    }
+    input[type="text"] {
+        width: 100px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+    h2 {
+        margin: 0;
+    }
+</style>
+<script src="script.js"></script>
 </head>
 <body>
     <form name="frmCal">
