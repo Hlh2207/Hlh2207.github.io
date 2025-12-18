@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Registration</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        background: white;
+        padding: 20px;
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .strength {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .weak {
+        color: red;
+    }
+
+    .medium {
+        color: orange;
+    }
+
+    .strong {
+        color: green;
+    }
+
+    button {
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    .error {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+</head>
+
+<body>
+
+<form id="registerForm">
+    <h2>User Registration</h2>
+
+    <!-- Username -->
+    <label>Username</label>
+    <input type="text" id="username" required>
+    <span class="error" id="usernameError"></span>
+
+    <!-- Password -->
+    <label>Password</label>
+    <input type="password" id="password" required>
+    <span class="strength" id="strengthText"></span>
+    <span class="error" id="passwordError"></span>
+
+    <!-- Profile Picture -->
+    <label>Profile Picture</label>
+    <input type="file" id="profilePic" accept=".jpg,.png" required>
+    <span class="error" id="fileError"></span>
+
+    <button type="submit">Register</button>
+</form>
+
+<script>
+    const passwordInput = document.getElementById("password");
+    const strengthText = document.getElementById("strengthText");
+
+    // Password strength indicator (real-time)
+    passwordInput.addEventListener("input", function () {
+        const value = passwordInput.value;
+        let strength = "";
+
+        if (value.length < 6) {
+            strength = "Weak";
+            strengthText.className = "strength weak";
+        } else if (/[a-zA-Z]/.test(value) && /\d/.test(value)) {
+            strength = "Strong";
+            strengthText.className = "strength strong";
+        } else {
+            strength = "Medium";
+            strengthText.className = "strength medium";
+        }
+
+        strengthText.textContent = strength;
+    });
+
+    // Form validation
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+        let valid = true;
+
+        // Username validation
+        const username = document.getElementById("username").value;
+        if (username.length < 5 || username.length > 15) {
+            document.getElementById("usernameError").textContent =
+                "Username must be 5-15 characters.";
+            valid = false;
+        } else {
+            document.getElementById("usernameError").textContent = "";
+        }
+
+        // Password validation
+        const password = passwordInput.value;
+        if (!(/[a-zA-Z]/.test(password) && /\d/.test(password))) {
+            document.getElementById("passwordError").textContent =
+                "Password must contain letters and numbers.";
+            valid = false;
+        } else {
+            document.getElementById("passwordError").textContent = "";
+        }
+
+        // File validation
+        const file = document.getElementById("profilePic").files[0];
+        if (file) {
+            const allowedTypes = ["image/jpeg", "image/png"];
+            if (!allowedTypes.includes(file.type)) {
+                document.getElementById("fileError").textContent =
+                    "Only JPG or PNG files allowed.";
+                valid = false;
+            } else {
+                document.getElementById("fileError").textContent = "";
+            }
+        }
+
+        if (!valid) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>
